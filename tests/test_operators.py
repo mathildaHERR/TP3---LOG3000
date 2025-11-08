@@ -36,15 +36,19 @@ def test_multiply(a, b, expected):
 	assert multiply(a, b) == expected
 
 @pytest.mark.parametrize("a,b,expected", [
-	(2, 3, 0),
-	(13, 2, 6),
-    (62, 4, 15),
-    (-20, 3, -7),
-    (0, 24, 0)
+	(2, 3, 2/3),
+	(13, 2, 13/2),
+	(62, 4, 62/4),
+	(-20, 3, -20/3),
+	(0, 24, 0/24)
 ])
-def test_divide_integer_floor(a, b, expected):
-	"""`divide(a,b)` doit effectuer une division entière."""
-	assert divide(a, b) == expected
+def test_divide_real_division(a, b, expected):
+	"""`divide(a, b)` doit effectuer une division réelle (a / b).
+
+	Les résultats sont comparés avec `pytest.approx` pour tenir compte
+	d'éventuelles représentations flottantes.
+	"""
+	assert divide(a, b) == pytest.approx(expected)
 
 
 def test_divide_by_zero_raises():
