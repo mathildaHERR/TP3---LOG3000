@@ -11,6 +11,12 @@ OPS = {
 }
 
 def calculate(expr: str):
+    """
+    :role : Effectuer l'opération sur les deux chiffres de l'expression
+
+    :param expr: Expression mathématique
+    :return: Le résultat de l'opération entre les deux chiffres
+    """
     if not expr or not isinstance(expr, str):
         raise ValueError("empty expression")
 
@@ -21,6 +27,7 @@ def calculate(expr: str):
 
     for i, ch in enumerate(s):
         if ch in OPS:
+            ## Si op_pos != -1, alors on a déjà trouvé un opérateur, car op_pos a été changé
             if op_pos != -1:
                 raise ValueError("only one operator is allowed")
             op_pos = i
@@ -30,7 +37,9 @@ def calculate(expr: str):
         # operator at start/end or not found
         raise ValueError("invalid expression format")
 
+    ## L'opérande 'left' comprend tout ce qui est gauche de l'opérateur
     left = s[:op_pos]
+    ## L'opérande 'right' comprend tout ce qui est à droite de l'opérateur
     right = s[op_pos+1:]
 
     try:
@@ -39,11 +48,18 @@ def calculate(expr: str):
     except ValueError:
         raise ValueError("operands must be numbers")
 
+    ## Exécute l'opération de notre expression qui est à la position op_char dans OPS
     return OPS[op_char](a, b)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    """
+    :role : Définire la logique de la calculatrice
+
+    :return: Le template de la page index.html avec le résultat calculé
+    """
     result = ""
+    ## Le résultat est calculé seulement quand l'utilisateur soumet une requête ('POST')
     if request.method == 'POST':
         expression = request.form.get('display', '')
         try:
