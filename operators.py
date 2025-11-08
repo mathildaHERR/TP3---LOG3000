@@ -16,7 +16,7 @@ def subtract(a,b):
     :param b: Le minuende
     :return: La différence entre le minuende et le soustrahend
     """
-    return b - a
+    return a - b 
 
 def multiply(a,b):
     """
