@@ -20,7 +20,7 @@ python -m pytest -q
 
 ### `test_operators.py`
 
-- Tests pour `add(a, b)` : cas positifs, négatifs et zéro.
-- Tests pour `subtract(a, b)` : vérifie l'implémentation actuelle (retourne `b - a`).
-- Tests pour `multiply(a, b)` : l'implémentation actuelle effectue une puissance (`a ** b`).
-- Tests pour `divide(a, b)` : division entière (`a // b`) et vérification que la division par zéro lève une exception.
+- Tests pour `add(a, b)` : vérifie que l'implémentation actuelle retourne bien une addition. Cas positifs, négatifs et zéro.
+- Tests pour `subtract(a, b)` : vérifie que l'implémentation actuelle retourne bien une soustraction de a par b. Cas positifs, négatifs et zéro.
+- Tests pour `multiply(a, b)` : vérifie que l'implémentation actuelle retourne bien une multiplication. Cas positifs, négatifs et zéro.
+- Tests pour `divide(a, b)` : vérifie que l'implémentation actuelle retourne bien une division entière et vérification que la division par zéro lève une exception. Cas positifs, négatifs et zéro.
