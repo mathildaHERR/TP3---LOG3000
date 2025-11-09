@@ -36,4 +36,4 @@ def divide(a,b):
     :param b: Le diviseur
     :return: Le quotient du dividende et du diviseur
     """
-    return a // b
+    return a / b
