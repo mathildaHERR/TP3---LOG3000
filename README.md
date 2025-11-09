@@ -36,5 +36,18 @@ Le but du projet est de fournir à un utilisateur une calculatrice simple. Celle
 6. Pour arrêter l'application: effectuer ```ctrl + c``` dans le terminal où vous avez déployé l'application.
 
 ## Tests
+1. Pour exécuter les tests, d'abord installer pytest si nécessaire depuis la racine du projet:
+
+
+
+```python -m pip install -U pytest```
+
+2. Lancer la suite des tests:
+   
+
+```python -m pytest -q```
 
 ## Flux de contribution
+Une branche est crée à partir de `main` pour résoudre chaque issue créée. La convention de nomenclature des branches est: `fix/` + le numéro de l'issue. 
+
+Après les correctifs sur les branches individuelles, une Pull Request (PR) est ouverte. Le numéro de la branche est mis dans la description de la PR pour rappeler l'issue associée. La PR est fusionnée dans la branche principale après la revue de pairs.
